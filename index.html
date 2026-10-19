@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2775.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en" class="scroll-smooth"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;SAI Studio | Scotti AI Studio — Next-Generation Cinematic Studio&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Next-Generation Studio. Legacy-Driven. AI-Empowered. Bridging five decades of Hollywood blockbuster heritage with autonomous generative production."&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Fonts --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Syne:wght@400;500;600;700;800&amp;family=Cinzel:wght@500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Tailwind CSS via CDN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tailwind.config = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>theme: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>extend: {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>colors: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>obsidian: '#070709',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>jet: '#0e0e12',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>surface: '#15151b',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'surface-light': '#1d1d26',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>amber: {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>400: '#f6cb59',</p>
+<p class="p1"><span class="Apple-converted-space">              </span>500: '#d4af37',</p>
+<p class="p1"><span class="Apple-converted-space">              </span>600: '#b8942b',</p>
+<p class="p1"><span class="Apple-converted-space">              </span>glow: 'rgba(212, 175, 55, 0.25)',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>slate: {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>400: '#94a3b8',</p>
+<p class="p1"><span class="Apple-converted-space">              </span>500: '#64748b',</p>
+<p class="p1"><span class="Apple-converted-space">              </span>600: '#475569',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>},</p>
+<p class="p1"><span class="Apple-converted-space">          </span>fontFamily: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: ['Syne', 'sans-serif'],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cinematic: ['Cinzel', 'serif'],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sans: ['"Plus Jakarta Sans"', 'sans-serif'],</p>
+<p class="p1"><span class="Apple-converted-space">          </span>},</p>
+<p class="p1"><span class="Apple-converted-space">          </span>letterSpacing: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ultra-wide': '0.35em',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'cinematic': '0.2em',</p>
+<p class="p1"><span class="Apple-converted-space">          </span>},</p>
+<p class="p1"><span class="Apple-converted-space">          </span>boxShadow: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'glow': '0 0 45px -5px rgba(212, 175, 55, 0.15)',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'glow-lg': '0 0 70px -10px rgba(212, 175, 55, 0.25)',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'subtle-glow': '0 0 30px rgba(255, 255, 255, 0.04)',</p>
+<p class="p1"><span class="Apple-converted-space">          </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Lucide Icons --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://unpkg.com/lucide@latest"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Film Grain Overlay */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.film-grain {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 999;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.035;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Ambient Spotlight Glow */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-glow {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle 800px at 50% -10%, rgba(212, 175, 55, 0.12), transparent 70%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>radial-gradient(circle 600px at 80% 20%, rgba(212, 175, 55, 0.05), transparent 60%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Custom Scrollbar */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>::-webkit-scrollbar-track {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #070709;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>::-webkit-scrollbar-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #23232b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>::-webkit-scrollbar-thumb:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #d4af37;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Cinematic Border Shimmer */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.border-shimmer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.border-shimmer::after {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>inset: -1px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(212,175,55,0.4), transparent 60%, rgba(255,255,255,0.05));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>-webkit-mask-composite: xor;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>mask-composite: exclude;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body class="bg-obsidian text-slate-300 font-sans antialiased selection:bg-amber-500 selection:text-black min-h-screen relative overflow-x-hidden"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Grain Overlay --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="film-grain"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Ambient Cinematic Spotlights --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="fixed inset-0 pointer-events-none hero-glow z-0"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- TOP HEADER / LUXURY NAVIGATION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="fixed top-0 left-0 w-full z-50 bg-obsidian/85 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Brand Logotype --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#" class="flex items-center gap-3 group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="w-8 h-8 rounded bg-gradient-to-tr from-amber-500/20 via-amber-400/40 to-amber-500/10 border border-amber-500/40 flex items-center justify-center transition-all duration-300 group-hover:border-amber-400 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display font-black text-amber-400 tracking-tighter text-sm"&gt;S&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display font-extrabold text-base tracking-[0.25em] text-white group-hover:text-amber-400 transition-colors"&gt;SAI STUDIO&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-[9px] font-sans tracking-[0.3em] uppercase text-slate-500 -mt-1 font-semibold"&gt;Scotti AI Studio&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Desktop Nav --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;nav class="hidden md:flex items-center gap-9 text-xs tracking-cinematic uppercase font-medium text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#slate" class="hover:text-white transition-colors duration-200"&gt;Slate&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#legacy" class="hover:text-white transition-colors duration-200"&gt;Legacy&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#engine" class="hover:text-white transition-colors duration-200"&gt;SAI Engine&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#leadership" class="hover:text-white transition-colors duration-200"&gt;Leadership&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#contact" class="hover:text-white transition-colors duration-200"&gt;Press&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Screening Access Action Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hidden sm:flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="openBriefingModal()" class="relative group px-5 py-2.5 rounded-sm border border-amber-500/40 bg-amber-500/5 hover:bg-amber-500/15 hover:border-amber-400 text-amber-300 text-xs tracking-cinematic uppercase font-semibold transition-all duration-300 hover:shadow-glow flex items-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;Screening Access&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Mobile Menu Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="mobileMenuBtn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle Navigation"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i data-lucide="menu" id="menuIcon" class="w-6 h-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Mobile Dropdown --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="mobileMenu" class="hidden md:hidden bg-jet/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 transition-all duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex flex-col gap-5 text-sm tracking-cinematic uppercase font-medium text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#slate" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()"&gt;Slate&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#legacy" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()"&gt;Legacy&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#engine" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()"&gt;SAI Engine&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#leadership" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()"&gt;Leadership&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#contact" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()"&gt;Press&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="openBriefingModal(); toggleMobileMenu();" class="mt-2 w-full py-3 rounded-sm border border-amber-500/40 bg-amber-500/10 text-amber-300 text-xs tracking-cinematic uppercase font-bold text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Request Screening Access</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- MAIN HERO SECTION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center z-10 px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-5xl mx-auto text-center flex flex-col items-center"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Studio Badge --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-amber-500/20 bg-jet/80 backdrop-blur mb-8 animate-fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="text-[11px] font-sans tracking-[0.25em] text-amber-300/90 uppercase font-semibold"&gt;Hollywood Heritage × Frontier AI&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Hero Heading --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-white tracking-tight leading-[1.08] mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Next-Generation Studio.&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Legacy-Driven. AI-Empowered.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Subtitle --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="max-w-2xl text-base sm:text-lg md:text-xl text-slate-400 font-light leading-relaxed mb-10 tracking-wide"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Trailblazing the synthetic frontier of cinema—bridging five decades of Hollywood blockbuster heritage with autonomous generative production.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Primary Action Buttons --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#slate" class="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-white text-black font-semibold text-xs tracking-[0.2em] uppercase hover:bg-amber-400 hover:text-black transition-all duration-300 flex items-center justify-center gap-3 group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;Explore 2026 Slate&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;i data-lucide="film" class="w-4 h-4 group-hover:scale-110 transition-transform"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#engine" class="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-white/15 bg-white/5 hover:border-amber-500/50 hover:bg-white/10 text-white font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;The SAI Engine&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;i data-lucide="cpu" class="w-4 h-4 text-amber-400"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Hero Cinematic Indicator --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mt-20 flex flex-col items-center gap-2 text-slate-500 text-[10px] tracking-widest uppercase"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Scroll to enter studio&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i data-lucide="chevron-down" class="w-4 h-4 text-amber-500/60 animate-bounce"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- STATS / METRIC BANNER --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="relative z-10 border-y border-white/10 bg-jet/60 backdrop-blur-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto px-6 py-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/5"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col items-center justify-center pt-4 md:pt-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1"&gt;50&lt;span class="text-amber-400 font-sans text-3xl font-normal"&gt;YRS&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400"&gt;Hollywood Disruption&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col items-center justify-center pt-4 md:pt-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1"&gt;1B&lt;span class="text-amber-400 font-sans text-3xl font-normal"&gt;+&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400"&gt;Global Viewers Reached&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col items-center justify-center pt-4 md:pt-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1"&gt;02&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400"&gt;Feature Films in Pipeline&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col items-center justify-center pt-4 md:pt-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1"&gt;100&lt;span class="text-amber-400 font-sans text-3xl font-normal"&gt;%&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400"&gt;Director-Controlled AI&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LEGACY NARRATIVE: TONY SCOTTI --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="legacy" class="relative z-10 py-32 px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Left: Cinematic Heritage Frame --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="lg:col-span-5 relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="relative rounded-sm overflow-hidden border border-white/10 bg-jet p-2 shadow-2xl group"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Atmospheric Image Representation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="relative aspect-[4/5] rounded overflow-hidden bg-surface flex flex-col justify-end p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;!-- Background Ambient Visual --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">              </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;!-- Subtle Abstract Film Reel / Waves SVG --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">              </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="relative z-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="inline-block text-[10px] tracking-ultra-wide uppercase text-amber-400 font-bold mb-2"&gt;Historical Provenance&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-display text-2xl font-bold text-white mb-2"&gt;Scotti Brothers to Scotti AI&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-xs text-slate-400 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>From recording studios that launched global icons to producing &lt;em&gt;Baywatch&lt;/em&gt;, the most syndicated broadcast asset in global history.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;!-- Retro Badge --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="absolute top-6 right-6 z-20 border border-amber-500/30 bg-obsidian/80 px-3 py-1 text-[10px] tracking-widest text-amber-300 uppercase rounded"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Est. Hollywood 1974</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Accent corner hairlines --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-amber-400"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-amber-400"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Right: The Narrative --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="lg:col-span-7 flex flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex items-center gap-3 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="h-px w-8 bg-amber-500"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold"&gt;The Origin Architecture&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-8 leading-tight"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Fifty Years of Hollywood Disruption.&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-slate-400 font-normal"&gt;Re-engineered for the Neural Age.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="space-y-6 text-slate-300 text-base md:text-lg font-light leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Fifty years ago, &lt;strong class="text-white font-medium"&gt;Tony Scotti&lt;/strong&gt; arrived in Hollywood with $50 in his pocket and a vision. That grit built &lt;strong class="text-white font-medium"&gt;Scotti Bros Records&lt;/strong&gt;, launched global icons, and created &lt;strong class="text-white font-medium"&gt;All American Television&lt;/strong&gt;—home to &lt;em class="text-amber-200 not-italic font-medium"&gt;Baywatch&lt;/em&gt;, the most-watched television series in human history with over one billion global viewers.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Today, &lt;strong class="text-amber-400 font-medium"&gt;Scotti AI (SAI) Studio&lt;/strong&gt; applies that same audacious disruption to artificial intelligence. While others view AI as automated pastiche, we treat it as an amplified camera lens for auteur storytellers.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Highlight Box Quote --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mt-10 p-6 rounded-sm border-l-2 border-amber-400 bg-surface/50 border-r border-t border-b border-white/5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="font-display text-lg text-white font-medium italic"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>"We believe cinema is human-authored, director-led, and supercharged by frontier generative engines."</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-4 flex items-center justify-between text-xs tracking-wider text-slate-400 uppercase"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;— Tony Scotti, Executive Chairman&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="text-amber-400 font-mono"&gt;SAI STUDIO MANIFESTO&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- FEATURE FILM PRODUCTION SLATE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="slate" class="relative z-10 py-32 px-6 bg-jet/40 border-t border-white/5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Slate Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex items-center gap-3 mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="h-px w-8 bg-amber-500"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold"&gt;Production Slate&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>In-Development Tentpoles</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-slate-400 max-w-md text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Proprietary neural pipelines paired with world-class narrative scripts. Screenings, tech bibles, and confidential pitch access available for verified partners.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Feature Film Cards Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-10"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- PROJECT 01: THE DOOLITTLE RAID --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="group relative rounded-sm border border-white/10 bg-surface hover:border-amber-500/40 transition-all duration-500 overflow-hidden flex flex-col justify-between"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">          </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Poster Top Imagery --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="relative h-72 sm:h-80 w-full overflow-hidden bg-obsidian"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/60 z-10"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Graphic Treatment / Stylized Key Visual --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="relative w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/20 via-obsidian to-obsidian flex flex-col items-center justify-center text-center p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Tactical Watermark / Coordinates --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-mono text-[10px] tracking-widest text-amber-500/40 absolute top-4 left-4"&gt;USS HORNET (CV-8) // 35°40'N 141°00'E&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-mono text-[10px] tracking-widest text-slate-600 absolute top-4 right-4"&gt;PROD_ID: SAI-001&lt;/span&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="plane" class="w-16 h-16 text-amber-400/80 mb-3 stroke-[1.25]"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-display text-2xl font-bold tracking-widest text-white uppercase"&gt;The Doolittle Raid&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-xs font-mono text-amber-400/70 tracking-widest mt-1"&gt;16 B-25 MITCHELLS // 80 AVIATORS&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Badges --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute bottom-4 left-6 z-20 flex flex-wrap gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-amber-500/20 border border-amber-500/40 text-amber-300 font-semibold rounded-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>In Pre-Production</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-white/10 border border-white/20 text-slate-200 font-semibold rounded-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Neural VFX Slate</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-obsidian/80 border border-white/10 text-slate-400 rounded-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Scotti AI Original</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Card Content --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="p-8 flex-1 flex flex-col justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="text-xs font-mono text-amber-400 tracking-wider mb-2"&gt;FEATURE FILM | EPIC WWII HISTORICAL ACTION &amp; THRILLER&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 class="font-display text-2xl font-bold text-white mb-4"&gt;The Doolittle Raid&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="text-slate-300 text-sm leading-relaxed mb-6 font-light"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Eighty brave aviators. Sixteen stripped-down B-25 bombers launched from a pitching carrier deck. An impossible one-way mission that shifted the tide of World War II—reconstructed with photorealistic neural visual effects, dynamic aerial acoustics, and generative set extension.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;!-- Technical Pipeline Specifications --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="grid grid-cols-2 gap-4 py-4 border-y border-white/5 mb-6 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]"&gt;VFX Paradigm&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-200 font-medium"&gt;Neural Fleet Synthesis&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]"&gt;Audio Architecture&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-200 font-medium"&gt;Acoustic Twin Soundscapes&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Inspect Modal Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="openProjectModal('doolittle')" class="w-full py-3 rounded-sm border border-amber-500/30 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 font-medium text-xs tracking-cinematic uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-glow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Inspect Project Dossier &amp; Specs&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="chevron-right" class="w-4 h-4"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- PROJECT 02: LEGEND OF THE JADE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="group relative rounded-sm border border-white/10 bg-surface hover:border-amber-500/40 transition-all duration-500 overflow-hidden flex flex-col justify-between"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">          </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Poster Top Imagery --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="relative h-72 sm:h-80 w-full overflow-hidden bg-obsidian"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/60 z-10"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Graphic Treatment / Stylized Key Visual --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="relative w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/25 via-obsidian to-obsidian flex flex-col items-center justify-center text-center p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Watermark / Coordinates --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-mono text-[10px] tracking-widest text-emerald-500/40 absolute top-4 left-4"&gt;CELESTIAL PALACE ARCHIVES&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-mono text-[10px] tracking-widest text-slate-600 absolute top-4 right-4"&gt;PROD_ID: SAI-002&lt;/span&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="sparkles" class="w-16 h-16 text-emerald-400/80 mb-3 stroke-[1.25]"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-display text-2xl font-bold tracking-widest text-white uppercase"&gt;Legend of the Jade&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-xs font-mono text-emerald-400/70 tracking-widest mt-1"&gt;DYNASTIC MYTHOLOGY // ETHEREAL REALMS&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Badges --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute bottom-4 left-6 z-20 flex flex-wrap gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-semibold rounded-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>World Engine Alpha</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-white/10 border border-white/20 text-slate-200 font-semibold rounded-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Mythic Fantasy Action</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-obsidian/80 border border-white/10 text-slate-400 rounded-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Scotti AI Original</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Card Content --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="p-8 flex-1 flex flex-col justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="text-xs font-mono text-amber-400 tracking-wider mb-2"&gt;FEATURE FILM | MYTHIC FANTASY &amp; ACTION ADVENTURE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 class="font-display text-2xl font-bold text-white mb-4"&gt;Legend of the Jade&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="text-slate-300 text-sm leading-relaxed mb-6 font-light"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>An ancient dynastic mystery intertwined with Eastern mythology and ethereal realms. SAI engines render mythical beasts, imperial jade citadels, and choreographed martial arts with physics-accurate generative cinematography.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;!-- Technical Pipeline Specifications --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="grid grid-cols-2 gap-4 py-4 border-y border-white/5 mb-6 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]"&gt;World Synthesis&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-200 font-medium"&gt;Procedural Imperial Citadels&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]"&gt;Motion Physics&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="text-slate-200 font-medium"&gt;Neural Kinetic Stunt Rigging&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Inspect Modal Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="openProjectModal('jade')" class="w-full py-3 rounded-sm border border-amber-500/30 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 font-medium text-xs tracking-cinematic uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-glow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Inspect Project Dossier &amp; Specs&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="chevron-right" class="w-4 h-4"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- THE SAI ENGINE: PROPRIETARY PRODUCTION PLATFORM --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="engine" class="relative z-10 py-32 px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Engine Section Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="max-w-3xl mb-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center gap-3 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="h-px w-8 bg-amber-500"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold"&gt;Proprietary Pipeline&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>The SAI Engine: The Architecture of Synthetic Cinema</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-slate-400 text-base md:text-lg font-light leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Modeled to resolve Hollywood's greatest generative limitations—identity drift, physics instability, and resolution constraints. A four-tiered studio engine governed exclusively by human directors.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Pipeline Four Pillars Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Pillar 01 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="file-code-2" class="w-6 h-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2"&gt;STAGE 01 // SCRIPT GEOMETRY&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4 class="font-display text-lg font-bold text-white mb-3"&gt;Autonomous Script Breakdown&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-400 text-xs leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Synthesizes screenplay text into 3D scene geometry, lighting conditions, dynamic blocking cues, and acoustic room volumes instantaneously.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;LATENCY: ZERO-DRIFT&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Pillar 02 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="scan-face" class="w-6 h-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2"&gt;STAGE 02 // MULTIMODAL LOCK&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4 class="font-display text-lg font-bold text-white mb-3"&gt;Consistent Identity Engine&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-400 text-xs leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Zero facial or costume drift across 120 minutes of cinematic footage. Retains character biometric integrity across extreme angles and dynamic motion.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;STABILITY: 99.8%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Pillar 03 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="clapperboard" class="w-6 h-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2"&gt;STAGE 03 // REAL-TIME PREVIS&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4 class="font-display text-lg font-bold text-white mb-3"&gt;Real-Time Director Steering&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-400 text-xs leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Sub-second iterative storyboarding with virtual multi-camera rigs. Directors manipulate lens focal length, crane velocity, and lighting in real time.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;RENDER: 60 FPS PREVIS&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Pillar 04 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="sparkle" class="w-6 h-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2"&gt;STAGE 04 // FINAL MASTER&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4 class="font-display text-lg font-bold text-white mb-3"&gt;4K/8K Neural Compositing&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-400 text-xs leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>DCI-P3 color master grade, optical anamorphic lens flare matching, organic 35mm grain emulation, and spatial Dolby Atmos acoustic rendering.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;OUTPUT: DCI 8K RAW&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Interactive Pipeline Schematic Terminal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mt-12 rounded-sm border border-white/10 bg-jet p-6 font-mono text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center justify-between border-b border-white/5 pb-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex items-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="w-2.5 h-2.5 rounded-full bg-red-500/70"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="w-2.5 h-2.5 rounded-full bg-green-500/70"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-slate-500 ml-2 text-[11px]"&gt;SAI-CORE-NODE // PIPELINE TELEMETRY&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-amber-400/80 text-[10px]"&gt;DIRECTOR OVERRIDE ENABLED&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-slate-600 block"&gt;IDENTITY MATRIX:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-white"&gt;Active (Model: ScottiNet-v4.2-Anamorphic)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-slate-600 block"&gt;GENERATIVE SEED LOCK:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-amber-400"&gt;0x8F94...B19 (Non-Drifting)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-slate-600 block"&gt;MAX RENDER RESOLUTION:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-white"&gt;8192 × 4320 @ 12-Bit ProRes 4444 XQ&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LEADERSHIP &amp; HOLLYWOOD PEDIGREE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="leadership" class="relative z-10 py-32 px-6 bg-jet/30 border-t border-white/5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex items-center gap-3 mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="h-px w-8 bg-amber-500"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold"&gt;Studio Governance&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Executive Leadership</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-slate-400 max-w-md text-sm leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>The rare intersection of classic Hollywood entertainment empires and breakthrough generative technology architects.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid grid-cols-1 lg:grid-cols-12 gap-10"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Tony Scotti Profile Card --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="lg:col-span-8 p-8 md:p-12 rounded-sm border border-amber-500/30 bg-surface/80 relative overflow-hidden shadow-glow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="award" class="w-40 h-40 text-amber-400"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="relative z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center gap-3 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="px-2 py-0.5 rounded text-[10px] font-mono tracking-widest uppercase bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Studio Co-Founder &amp; Executive Chairman</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-2"&gt;Tony Scotti&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-amber-400/90 text-sm font-medium tracking-wide mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Pioneer of Scotti Bros Records &amp; All American Television</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-300 text-base leading-relaxed mb-6 font-light"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>With a legendary career spanning half a century in major entertainment financing, distribution, and production, Tony Scotti redefined modern commercial entertainment. Under his leadership, Scotti Bros Records dominated global charts, while All American Television produced and distributed &lt;em&gt;Baywatch&lt;/em&gt;—reaching over 1 billion viewers across 140 countries.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-slate-400 text-sm leading-relaxed mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>At SAI Studio, Scotti steers overall studio vision, talent alliances, and distribution windows—insuring synthetic tools remain dedicated to auteur cinematic storytelling rather than derivative novelty.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1"&gt;Global Television&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-white font-semibold"&gt;1,000,000,000+ Viewers&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1"&gt;Industry Pedigree&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-white font-semibold"&gt;Scotti Bros / All American&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1"&gt;Current Focus&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-amber-400 font-semibold"&gt;Generative Hollywood Slate&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Studio Ethos / Methodology --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="lg:col-span-4 p-8 md:p-10 rounded-sm border border-white/10 bg-jet flex flex-col justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center text-amber-400 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i data-lucide="shield-check" class="w-5 h-5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4 class="font-display text-xl font-bold text-white mb-4"&gt;The SAI Production Covenant&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul class="space-y-4 text-xs text-slate-300 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li class="flex items-start gap-2.5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;&lt;strong&gt;Human-Authored Rights:&lt;/strong&gt; Every script is commissioned and authored by human screenwriters with clean WGA-aligned provenance.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li class="flex items-start gap-2.5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;&lt;strong&gt;Director Steering:&lt;/strong&gt; Generative models respond strictly to explicit creative direction, rejecting black-box unpredictability.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li class="flex items-start gap-2.5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;&lt;strong&gt;Theatrical Fidelity:&lt;/strong&gt; Engineered from ground-zero for IMAX, Dolby Cinema, and premier 4K HDR physical projection.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="pt-6 border-t border-white/5 mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="openBriefingModal()" class="w-full py-3 rounded-sm border border-white/20 hover:border-amber-400 text-white hover:text-amber-300 text-xs tracking-cinematic uppercase font-semibold transition-all"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Request Partner Briefing</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- CONTACT &amp; PRIVATE BRIEFINGS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="contact" class="relative z-10 py-32 px-6 border-t border-white/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-4xl mx-auto text-center"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[10px] tracking-ultra-wide uppercase font-semibold mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Distribution &amp; Co-Production</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Initiate Production Inquiries</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-slate-400 text-base max-w-xl mx-auto mb-10 leading-relaxed font-light"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>SAI Studio collaborates with legacy distribution houses, streaming platforms, and visionary filmmakers. Screenplay treatments, technical decks, and NDA-guarded early looks are provided upon verification.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex flex-col sm:flex-row items-center justify-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="openBriefingModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-xs tracking-cinematic uppercase hover:shadow-glow transition-all duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Request Confidential Slate Pitch</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="mailto:inquiries@scottiaistudio.com" class="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-white/20 hover:border-white text-white text-xs tracking-cinematic uppercase font-medium transition-all"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Press &amp; Media Relations</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mt-16 pt-12 border-t border-white/5 flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-slate-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;HQ: LOS ANGELES, CA&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;•&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;PIPELINE: DISTRIBUTED NEURAL CLUSTER&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;•&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;ENCRYPTION: ENTERPRISE GRADE&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LUXURY FOOTER --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer class="relative z-10 bg-jet border-t border-white/10 py-16 px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex flex-col items-center md:items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center gap-3 mb-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="w-6 h-6 rounded bg-amber-500/20 border border-amber-500/40 flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="font-display font-black text-amber-400 text-xs"&gt;S&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="font-display font-bold text-sm tracking-widest text-white"&gt;SAI STUDIO&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-500"&gt;Scotti AI Studio Inc. Bridging Hollywood Heritage &amp; Autonomous Cinema.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex items-center gap-8 text-xs tracking-cinematic uppercase text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#slate" class="hover:text-white transition-colors"&gt;Slate&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#engine" class="hover:text-white transition-colors"&gt;Engine&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#legacy" class="hover:text-white transition-colors"&gt;Legacy&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#leadership" class="hover:text-white transition-colors"&gt;Leadership&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="text-xs text-slate-500 text-center md:text-right font-mono"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Copyright © 2026 SAI Studio (Scotti AI Studio).&lt;br&gt;All rights reserved. Hollywood &amp; Worldwide.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ==================== MODALS ==================== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- PROJECT DOSSIER MODAL --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/90 backdrop-blur-md overflow-y-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="relative w-full max-w-3xl my-8 rounded-sm border border-amber-500/30 bg-surface p-6 sm:p-10 shadow-glow-lg text-left transition-all"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Close button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="closeProjectModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i data-lucide="x" class="w-5 h-5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Dynamic Modal Content Injection Target --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="modalContent"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mt-8 pt-6 border-t border-white/10 flex justify-end gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-sm border border-white/10 text-slate-400 text-xs tracking-wider uppercase hover:text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Close Dossier</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="closeProjectModal(); openBriefingModal();" class="px-6 py-2.5 rounded-sm bg-amber-500 text-black font-bold text-xs tracking-wider uppercase hover:bg-amber-400 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Request NDA Slate Access</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- SCREENING / BRIEFING ACCESS MODAL --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="briefingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/90 backdrop-blur-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="relative w-full max-w-lg rounded-sm border border-amber-500/30 bg-surface p-8 shadow-glow-lg text-left"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="closeBriefingModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i data-lucide="x" class="w-5 h-5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="flex items-center gap-2 text-amber-400 text-xs font-mono tracking-widest uppercase mb-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i data-lucide="lock" class="w-3.5 h-3.5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Restricted Screening Access&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="font-display text-2xl font-bold text-white mb-2"&gt;Request Production Deck&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-xs text-slate-400 leading-relaxed mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Accredited producers, distributors, and studio executives may request access to interactive story reels, neural test captures, and investment terms.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;form onsubmit="handleBriefingSubmit(event)" class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5"&gt;Official Name&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="text" required placeholder="e.g. Eleanor Vance" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5"&gt;Corporate / Agency Email&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="email" required placeholder="name@studio.com" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5"&gt;Organization / Title&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="text" required placeholder="e.g. VP Acquisition, Global Theatrical" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5"&gt;Inquiry Interest&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Project 01: The Doolittle Raid (Worldwide Rights)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Project 02: Legend of the Jade (Co-Production)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;SAI Engine Enterprise Licensing&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Press / Festival Accreditation&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="submit" class="w-full mt-4 py-3 rounded-sm bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs tracking-cinematic uppercase transition-all shadow-glow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Submit Confidential Request</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/form&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- JAVASCRIPT LOGIC --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Initialize Lucide Icons</p>
+<p class="p1"><span class="Apple-converted-space">    </span>lucide.createIcons();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Mobile Menu Toggle</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function toggleMobileMenu() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const menu = document.getElementById('mobileMenu');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>menu.classList.toggle('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Project Dossier Data</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const projectData = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>doolittle: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>title: "The Doolittle Raid",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>badge: "IN PRE-PRODUCTION // NEURAL VFX SLATE",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>format: "Feature Film | Epic WWII Historical Action / Thriller",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logline: "Eighty brave aviators. Sixteen stripped-down B-25 bombers launched from a pitching carrier deck. An impossible one-way mission that shifted the tide of World War II—reconstructed with photorealistic neural visual effects, dynamic aerial acoustics, and generative set extension.",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>details: [</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Historical Subject", val: "April 18, 1942 Tokyo Raid" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Proprietary Tech", val: "B-25 Dynamic Aero-Acoustics &amp; Generative Pacific Seastate" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Resolution &amp; Format", val: "IMAX 1.43:1 &amp; 2.39:1 Scope / Dolby Vision DCI-P3" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Lead Architecture", val: "SAI Studio World Engine + Historical Archive Synthesis" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>synopsis: "Following the shock of Pearl Harbor, Lt. Colonel Jimmy Doolittle conceives an audacity previously deemed aerodynamically impossible: launching heavy Army land bombers from the short deck of the aircraft carrier USS Hornet. With stripped fuel tanks and no landing strip on the return path, 80 men embark toward high-altitude combat over Tokyo. SAI Studio reconstructs the pitching, gale-force flight decks and cloud canyons with unmatched photorealism and historically accurate aerodynamic telemetry."</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>jade: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>title: "Legend of the Jade",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>badge: "WORLD ENGINE ALPHA // SCRIPT BREAKDOWN COMPLETE",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>format: "Feature Film | Mythic Fantasy / Action Adventure",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logline: "An ancient dynastic mystery intertwined with Eastern mythology and ethereal realms. SAI engines render mythical beasts, imperial jade citadels, and choreographed martial arts with physics-accurate generative cinematography.",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>details: [</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Genre Spectrum", val: "Dynastic Wuxia / Ethereal High Fantasy" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Proprietary Tech", val: "Neural Kinetic Stunt Rigging &amp; Imperial Citadel Procedural Geometry" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Aesthetic Direction", val: "Luminous Emerald Atmospheric Volumes &amp; 65mm Optical Flare Emulation" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ label: "Lead Architecture", val: "SAI Multimodal Identity &amp; Creature Synthesis Pipeline" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>synopsis: "Deep within the fractured Middle Kingdoms, a broken seal upon an imperial jade mountain awakens mythic entities dormant for ten millennia. A disgraced imperial protector must navigate labyrinthine palace intrigues and celestial spirit realms to reclaim the Jade Sovereign. SAI Studio brings ethereal celestial citadels and fluid combat choreography to life utilizing novel physics-informed generative fluid mechanics and micro-expression locking."</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Open Project Dossier Modal</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function openProjectModal(projectId) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const p = projectData[projectId];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!p) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const content = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-center gap-2 text-amber-400 text-xs font-mono tracking-widest uppercase mb-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;${p.badge}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-2"&gt;${p.title}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs font-mono text-amber-300 tracking-wider mb-6"&gt;${p.format}&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-4 rounded border border-white/5 bg-jet/60 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="text-[10px] uppercase font-mono tracking-widest text-slate-500 block mb-1"&gt;Official Logline&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="text-sm text-slate-200 italic leading-relaxed font-light"&gt;"${p.logline}"&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h4 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2"&gt;Production Dossier Narrative&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="text-sm text-slate-300 leading-relaxed font-light"&gt;${p.synopsis}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>${p.details.map(d =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="text-[10px] uppercase font-mono tracking-widest text-slate-500 block"&gt;${d.label}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="text-xs text-white font-medium"&gt;${d.val}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('modalContent').innerHTML = content;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const modal = document.getElementById('projectModal');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.add('flex');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>lucide.createIcons();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function closeProjectModal() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const modal = document.getElementById('projectModal');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.remove('flex');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Screening Briefing Modal</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function openBriefingModal() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const modal = document.getElementById('briefingModal');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.add('flex');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function closeBriefingModal() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const modal = document.getElementById('briefingModal');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.classList.remove('flex');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function handleBriefingSubmit(e) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert("Thank you. Your request for confidential screening credentials has been logged. The SAI Studio acquisitions desk will contact your office within 24 hours.");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>closeBriefingModal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Close modals on escape key or clicking backdrop</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('keydown', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (e.key === 'Escape') {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>closeProjectModal();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>closeBriefingModal();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('projectModal').addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (e.target.id === 'projectModal') closeProjectModal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('briefingModal').addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (e.target.id === 'briefingModal') closeBriefingModal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Dynamic Navbar styling on scroll</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('scroll', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const nav = document.getElementById('navbar');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (window.scrollY &gt; 50) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nav.classList.add('py-2', 'bg-obsidian/95');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nav.classList.remove('py-0');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nav.classList.remove('py-2', 'bg-obsidian/95');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
