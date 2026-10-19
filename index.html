@@ -6,10 +6,10 @@
   <title>SAI Studio | Scotti AI Studio — Next-Generation Cinematic Studio</title>
   <meta name="description" content="Next-Generation Studio. Legacy-Driven. AI-Empowered. Bridging five decades of Hollywood blockbuster heritage with autonomous generative production.">
   
-  <!-- Fonts -->
+  <!-- Utopai Studios Brand Typography: Host Grotesk + Funnel Sans & Funnel Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&family=Funnel+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Host+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,35 +18,40 @@
       theme: {
         extend: {
           colors: {
-            obsidian: '#070709',
-            jet: '#0e0e12',
-            surface: '#15151b',
-            'surface-light': '#1d1d26',
-            amber: {
-              400: '#f6cb59',
+            obsidian: '#060608',
+            jet: '#0d0d12',
+            surface: '#13131a',
+            'surface-light': '#1b1b24',
+            gold: {
+              300: '#f6d87e',
+              400: '#ecc457',
               500: '#d4af37',
               600: '#b8942b',
-              glow: 'rgba(212, 175, 55, 0.25)',
+              glow: 'rgba(212, 175, 55, 0.22)',
             },
             slate: {
+              300: '#cbd5e1',
               400: '#94a3b8',
               500: '#64748b',
               600: '#475569',
             }
           },
           fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            cinematic: ['Cinzel', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            // Utopai's exact typographic stack
+            display: ['"Host Grotesk"', 'sans-serif'],
+            headline: ['"Host Grotesk"', 'sans-serif'],
+            sans: ['"Funnel Sans"', 'sans-serif'],
+            funnel: ['"Funnel Display"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
           },
           letterSpacing: {
-            'ultra-wide': '0.35em',
-            'cinematic': '0.2em',
+            'ultra-wide': '0.3em',
+            'cinematic': '0.18em',
           },
           boxShadow: {
-            'glow': '0 0 45px -5px rgba(212, 175, 55, 0.15)',
-            'glow-lg': '0 0 70px -10px rgba(212, 175, 55, 0.25)',
-            'subtle-glow': '0 0 30px rgba(255, 255, 255, 0.04)',
+            'gold-glow': '0 0 50px -10px rgba(212, 175, 55, 0.2)',
+            'gold-lg': '0 0 80px -15px rgba(212, 175, 55, 0.35)',
+            'card-glow': '0 10px 30px -10px rgba(0,0,0,0.8), 0 0 1px 1px rgba(212,175,55,0.12)',
           }
         }
       }
@@ -57,261 +62,325 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Film Grain Overlay */
+    /* Ambient Film Grain */
     .film-grain {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 999;
-      opacity: 0.035;
+      z-index: 50;
+      opacity: 0.032;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Ambient Spotlight Glow */
+    /* Cinematic Radial Lighting */
     .hero-glow {
-      background: radial-gradient(circle 800px at 50% -10%, rgba(212, 175, 55, 0.12), transparent 70%),
-                  radial-gradient(circle 600px at 80% 20%, rgba(212, 175, 55, 0.05), transparent 60%);
+      background: radial-gradient(circle 900px at 50% -10%, rgba(212, 175, 55, 0.12), transparent 75%),
+                  radial-gradient(circle 700px at 85% 30%, rgba(212, 175, 55, 0.04), transparent 60%),
+                  radial-gradient(circle 600px at 15% 70%, rgba(212, 175, 55, 0.03), transparent 60%);
+    }
+
+    /* Video Player Container Styling */
+    .trailer-frame {
+      position: relative;
+      background: #000;
+      overflow: hidden;
+    }
+    .trailer-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 6px;
+      width: 5px;
     }
     ::-webkit-scrollbar-track {
-      background: #070709;
+      background: #060608;
     }
     ::-webkit-scrollbar-thumb {
-      background: #23232b;
-      border-radius: 3px;
+      background: #1e1e27;
+      border-radius: 2px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #d4af37;
     }
-
-    /* Cinematic Border Shimmer */
-    .border-shimmer {
-      position: relative;
-    }
-    .border-shimmer::after {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(212,175,55,0.4), transparent 60%, rgba(255,255,255,0.05));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
   </style>
 </head>
 
-<body class="bg-obsidian text-slate-300 font-sans antialiased selection:bg-amber-500 selection:text-black min-h-screen relative overflow-x-hidden">
+<body class="bg-obsidian text-slate-300 font-sans antialiased selection:bg-gold-500 selection:text-black min-h-screen relative overflow-x-hidden">
 
   <!-- Grain Overlay -->
   <div class="film-grain"></div>
 
-  <!-- Ambient Cinematic Spotlights -->
+  <!-- Background Lighting Grid -->
   <div class="fixed inset-0 pointer-events-none hero-glow z-0"></div>
 
-  <!-- TOP HEADER / LUXURY NAVIGATION -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-obsidian/85 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+  <!-- ==================== HEADER / LUXURY NAVIGATION ==================== -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-obsidian/85 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logotype -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded bg-gradient-to-tr from-amber-500/20 via-amber-400/40 to-amber-500/10 border border-amber-500/40 flex items-center justify-center transition-all duration-300 group-hover:border-amber-400 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]">
-          <span class="font-display font-black text-amber-400 tracking-tighter text-sm">S</span>
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-9 h-9 rounded-sm bg-gradient-to-tr from-gold-500/20 via-gold-400/40 to-transparent border border-gold-500/40 flex items-center justify-center transition-all duration-300 group-hover:border-gold-400 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.35)]">
+          <span class="font-display font-black text-gold-400 tracking-tighter text-base">S</span>
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-extrabold text-base tracking-[0.25em] text-white group-hover:text-amber-400 transition-colors">SAI STUDIO</span>
-          <span class="text-[9px] font-sans tracking-[0.3em] uppercase text-slate-500 -mt-1 font-semibold">Scotti AI Studio</span>
+          <span class="font-display font-bold text-base tracking-[0.22em] text-white group-hover:text-gold-400 transition-colors uppercase">SAI Studio</span>
+          <span class="text-[9px] font-mono tracking-[0.3em] uppercase text-slate-500 -mt-1">Scotti AI Studio</span>
         </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-9 text-xs tracking-cinematic uppercase font-medium text-slate-400">
-        <a href="#slate" class="hover:text-white transition-colors duration-200">Slate</a>
+      <!-- Desktop Nav with Utopai-style Clean Tracking -->
+      <nav class="hidden md:flex items-center gap-8 text-xs tracking-cinematic uppercase font-medium text-slate-400">
+        <a href="#slate" class="hover:text-white transition-colors duration-200">Production Slate</a>
+        <a href="#trailers" class="hover:text-white transition-colors duration-200">Trailers</a>
         <a href="#legacy" class="hover:text-white transition-colors duration-200">Legacy</a>
         <a href="#engine" class="hover:text-white transition-colors duration-200">SAI Engine</a>
         <a href="#leadership" class="hover:text-white transition-colors duration-200">Leadership</a>
-        <a href="#contact" class="hover:text-white transition-colors duration-200">Press</a>
       </nav>
 
-      <!-- Screening Access Action Button -->
+      <!-- Screening Access Button -->
       <div class="hidden sm:flex items-center gap-4">
-        <button onclick="openBriefingModal()" class="relative group px-5 py-2.5 rounded-sm border border-amber-500/40 bg-amber-500/5 hover:bg-amber-500/15 hover:border-amber-400 text-amber-300 text-xs tracking-cinematic uppercase font-semibold transition-all duration-300 hover:shadow-glow flex items-center gap-2">
+        <button onclick="openBriefingModal()" class="relative group px-5 py-2.5 rounded-sm border border-gold-500/40 bg-gold-500/10 hover:bg-gold-500/20 hover:border-gold-400 text-gold-300 text-xs tracking-cinematic uppercase font-semibold transition-all duration-300 hover:shadow-gold-glow flex items-center gap-2">
           <span>Screening Access</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"></i>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-gold-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"></i>
         </button>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle Navigation">
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
         <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
       </button>
 
     </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden bg-jet/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 transition-all duration-300">
-      <div class="flex flex-col gap-5 text-sm tracking-cinematic uppercase font-medium text-slate-300">
-        <a href="#slate" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()">Slate</a>
-        <a href="#legacy" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()">Legacy</a>
-        <a href="#engine" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()">SAI Engine</a>
-        <a href="#leadership" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()">Leadership</a>
-        <a href="#contact" class="hover:text-amber-400 transition-colors" onclick="toggleMobileMenu()">Press</a>
-        <button onclick="openBriefingModal(); toggleMobileMenu();" class="mt-2 w-full py-3 rounded-sm border border-amber-500/40 bg-amber-500/10 text-amber-300 text-xs tracking-cinematic uppercase font-bold text-center">
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-jet/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-sm tracking-cinematic uppercase font-medium text-slate-300">
+        <a href="#slate" class="hover:text-gold-400 transition-colors" onclick="toggleMobileMenu()">Production Slate</a>
+        <a href="#trailers" class="hover:text-gold-400 transition-colors" onclick="toggleMobileMenu()">Trailers</a>
+        <a href="#legacy" class="hover:text-gold-400 transition-colors" onclick="toggleMobileMenu()">Legacy</a>
+        <a href="#engine" class="hover:text-gold-400 transition-colors" onclick="toggleMobileMenu()">SAI Engine</a>
+        <a href="#leadership" class="hover:text-gold-400 transition-colors" onclick="toggleMobileMenu()">Leadership</a>
+        <button onclick="openBriefingModal(); toggleMobileMenu();" class="mt-3 w-full py-3 rounded-sm border border-gold-500/40 bg-gold-500/15 text-gold-300 text-xs tracking-cinematic uppercase font-bold text-center">
           Request Screening Access
         </button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN HERO SECTION -->
-  <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center z-10 px-6">
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative min-h-screen pt-36 pb-24 flex items-center justify-center z-10 px-6">
     <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
       
-      <!-- Studio Badge -->
-      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-amber-500/20 bg-jet/80 backdrop-blur mb-8 animate-fade-in">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-        <span class="text-[11px] font-sans tracking-[0.25em] text-amber-300/90 uppercase font-semibold">Hollywood Heritage × Frontier AI</span>
+      <!-- Studio Pill Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-gold-500/30 bg-jet/80 backdrop-blur mb-8 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+        <span class="text-[11px] font-sans tracking-[0.25em] text-gold-300 uppercase font-semibold">Hollywood Heritage × Frontier AI</span>
       </div>
 
-      <!-- Hero Heading -->
-      <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-white tracking-tight leading-[1.08] mb-6">
+      <!-- Main Headline using Host Grotesk -->
+      <h1 class="font-display font-light text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white tracking-[-0.03em] leading-[1.04] mb-6">
         Next-Generation Studio.<br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
+        <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-600">
           Legacy-Driven. AI-Empowered.
         </span>
       </h1>
 
-      <!-- Subtitle -->
+      <!-- Subtitle Narrative using Funnel Sans -->
       <p class="max-w-2xl text-base sm:text-lg md:text-xl text-slate-400 font-light leading-relaxed mb-10 tracking-wide">
         Trailblazing the synthetic frontier of cinema—bridging five decades of Hollywood blockbuster heritage with autonomous generative production.
       </p>
 
-      <!-- Primary Action Buttons -->
+      <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-        <a href="#slate" class="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-white text-black font-semibold text-xs tracking-[0.2em] uppercase hover:bg-amber-400 hover:text-black transition-all duration-300 flex items-center justify-center gap-3 group">
-          <span>Explore 2026 Slate</span>
-          <i data-lucide="film" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+        <a href="#trailers" class="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-white text-black font-semibold text-xs tracking-[0.2em] uppercase hover:bg-gold-400 hover:text-black transition-all duration-300 flex items-center justify-center gap-3 group">
+          <span>Watch Official Trailers</span>
+          <i data-lucide="play" class="w-4 h-4 fill-current group-hover:scale-110 transition-transform"></i>
         </a>
-        <a href="#engine" class="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-white/15 bg-white/5 hover:border-amber-500/50 hover:bg-white/10 text-white font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-3">
-          <span>The SAI Engine</span>
-          <i data-lucide="cpu" class="w-4 h-4 text-amber-400"></i>
+        <a href="#slate" class="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-white/15 bg-white/5 hover:border-gold-500/50 hover:bg-white/10 text-white font-medium text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-3">
+          <span>Inspect 2026 Slate</span>
+          <i data-lucide="film" class="w-4 h-4 text-gold-400"></i>
         </a>
       </div>
 
-      <!-- Hero Cinematic Indicator -->
+      <!-- Scroll Indicator -->
       <div class="mt-20 flex flex-col items-center gap-2 text-slate-500 text-[10px] tracking-widest uppercase">
-        <span>Scroll to enter studio</span>
-        <i data-lucide="chevron-down" class="w-4 h-4 text-amber-500/60 animate-bounce"></i>
+        <span>Enter Studio</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 text-gold-500/60 animate-bounce"></i>
       </div>
 
     </div>
   </section>
 
-  <!-- STATS / METRIC BANNER -->
-  <section class="relative z-10 border-y border-white/10 bg-jet/60 backdrop-blur-sm">
+  <!-- ==================== STATS METRIC BAR ==================== -->
+  <section class="relative z-10 border-y border-white/10 bg-jet/70 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 py-12">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/5">
         
         <div class="flex flex-col items-center justify-center pt-4 md:pt-0">
-          <span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1">50<span class="text-amber-400 font-sans text-3xl font-normal">YRS</span></span>
+          <span class="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight mb-1">50<span class="text-gold-400 font-sans text-3xl font-light">YRS</span></span>
           <span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400">Hollywood Disruption</span>
         </div>
 
         <div class="flex flex-col items-center justify-center pt-4 md:pt-0">
-          <span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1">1B<span class="text-amber-400 font-sans text-3xl font-normal">+</span></span>
+          <span class="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight mb-1">1B<span class="text-gold-400 font-sans text-3xl font-light">+</span></span>
           <span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400">Global Viewers Reached</span>
         </div>
 
         <div class="flex flex-col items-center justify-center pt-4 md:pt-0">
-          <span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1">02</span>
-          <span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400">Feature Films in Pipeline</span>
+          <span class="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight mb-1">02</span>
+          <span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400">Tentpole Production Trailers</span>
         </div>
 
         <div class="flex flex-col items-center justify-center pt-4 md:pt-0">
-          <span class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-1">100<span class="text-amber-400 font-sans text-3xl font-normal">%</span></span>
-          <span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400">Director-Controlled AI</span>
+          <span class="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight mb-1">100<span class="text-gold-400 font-sans text-3xl font-light">%</span></span>
+          <span class="text-[11px] font-sans tracking-cinematic uppercase text-slate-400">Director-Led Architecture</span>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- LEGACY NARRATIVE: TONY SCOTTI -->
-  <section id="legacy" class="relative z-10 py-32 px-6">
+  <!-- ==================== EMBEDDED PRODUCTION TRAILERS ==================== -->
+  <section id="trailers" class="relative z-10 py-32 px-6 bg-obsidian">
     <div class="max-w-7xl mx-auto">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        
-        <!-- Left: Cinematic Heritage Frame -->
-        <div class="lg:col-span-5 relative">
-          <div class="relative rounded-sm overflow-hidden border border-white/10 bg-jet p-2 shadow-2xl group">
-            
-            <!-- Atmospheric Image Representation -->
-            <div class="relative aspect-[4/5] rounded overflow-hidden bg-surface flex flex-col justify-end p-8">
-              <!-- Background Ambient Visual -->
-              <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"></div>
-              
-              <!-- Subtle Abstract Film Reel / Waves SVG -->
-              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-              
-              <div class="relative z-20">
-                <span class="inline-block text-[10px] tracking-ultra-wide uppercase text-amber-400 font-bold mb-2">Historical Provenance</span>
-                <h3 class="font-display text-2xl font-bold text-white mb-2">Scotti Brothers to Scotti AI</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  From recording studios that launched global icons to producing <em>Baywatch</em>, the most syndicated broadcast asset in global history.
-                </p>
-              </div>
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="h-px w-8 bg-gold-500"></span>
+            <span class="text-xs font-sans tracking-ultra-wide uppercase text-gold-400 font-semibold">Official Screenings</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Production Trailers & First Looks
+          </h2>
+        </div>
+        <p class="text-slate-400 max-w-md text-sm leading-relaxed font-light">
+          Experience preview footage rendered through the SAI generative engine in alliance with Scotti Bros Asia.
+        </p>
+      </div>
 
-              <!-- Retro Badge -->
-              <div class="absolute top-6 right-6 z-20 border border-amber-500/30 bg-obsidian/80 px-3 py-1 text-[10px] tracking-widest text-amber-300 uppercase rounded">
-                Est. Hollywood 1974
-              </div>
+      <!-- Trailers Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- TRAILER 01: THE DOOLITTLE RAID -->
+        <div class="flex flex-col rounded-sm border border-white/10 bg-surface overflow-hidden shadow-card-glow group">
+          
+          <!-- Embedded Video Player Container -->
+          <div class="trailer-frame aspect-video relative">
+            <video 
+              id="doolittlePlayer" 
+              class="w-full h-full object-cover" 
+              poster="doolittle-raid-poster.jpg"
+              preload="metadata"
+              controls
+              playsinline>
+              <!-- Primary local/hosted video source -->
+              <source src="doolittle-raid-trailer.mp4" type="video/mp4">
+              <!-- Fallback video stream -->
+              <source src="trailer-doolittle.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Video Player Watermark Overlay -->
+            <div class="absolute top-4 left-4 z-10 pointer-events-none flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 rounded border border-white/10">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              <span class="text-[10px] font-mono tracking-widest text-white uppercase">SAI SCREENER // THE DOOLITTLE RAID</span>
             </div>
 
-            <!-- Accent corner hairlines -->
-            <div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-amber-400"></div>
-            <div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-amber-400"></div>
+            <div class="absolute top-4 right-4 z-10 pointer-events-none bg-gold-500/20 backdrop-blur-md px-2.5 py-1 rounded border border-gold-500/30 text-[10px] font-mono text-gold-300">
+              4K NEURAL MASTER
+            </div>
           </div>
+
+          <!-- Video Details & Actions -->
+          <div class="p-8 flex-1 flex flex-col justify-between bg-jet/60">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-gold-400 mb-2">
+                <span>SCOTTI BROS ASIA PRODUCTION</span>
+                <span>DURATION: 00:53</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-2">The Doolittle Raid</h3>
+              <p class="text-xs font-funnel text-gold-300 tracking-wider uppercase mb-4">
+                Courage • Sacrifice • Friendship — "Some missions change the course of history."
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                From Pearl Harbor to the pitching decks of the USS Hornet, 80 aviators launched 16 B-25 bombers on an impossible one-way mission over Tokyo, leading to a daring rescue across Chinese provinces and lifelong brotherhood forged in battle.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+              <button onclick="launchTheater('doolittle')" class="flex-1 py-3 rounded-sm bg-gold-500 hover:bg-gold-400 text-black font-bold text-xs tracking-cinematic uppercase transition-all flex items-center justify-center gap-2 shadow-gold-glow">
+                <i data-lucide="maximize" class="w-4 h-4"></i>
+                <span>Open Fullscreen Theater</span>
+              </button>
+              <button onclick="openProjectModal('doolittle')" class="px-5 py-3 rounded-sm border border-white/20 hover:border-gold-400 text-white hover:text-gold-300 text-xs tracking-cinematic uppercase font-semibold transition-all">
+                Dossier
+              </button>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Right: The Narrative -->
-        <div class="lg:col-span-7 flex flex-col">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="h-px w-8 bg-amber-500"></span>
-            <span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold">The Origin Architecture</span>
+        <!-- TRAILER 02: THE LEGEND OF THE JADE -->
+        <div class="flex flex-col rounded-sm border border-white/10 bg-surface overflow-hidden shadow-card-glow group">
+          
+          <!-- Embedded Video Player Container -->
+          <div class="trailer-frame aspect-video relative">
+            <video 
+              id="jadePlayer" 
+              class="w-full h-full object-cover" 
+              poster="legend-of-the-jade-poster.jpg"
+              preload="metadata"
+              controls
+              playsinline>
+              <!-- Primary local/hosted video source -->
+              <source src="legend-of-the-jade-trailer.mp4" type="video/mp4">
+              <!-- Fallback video stream -->
+              <source src="trailer-jade.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Video Player Watermark Overlay -->
+            <div class="absolute top-4 left-4 z-10 pointer-events-none flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 rounded border border-white/10">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-[10px] font-mono tracking-widest text-white uppercase">SAI SCREENER // THE CELESTIAL HORSES</span>
+            </div>
+
+            <div class="absolute top-4 right-4 z-10 pointer-events-none bg-emerald-500/20 backdrop-blur-md px-2.5 py-1 rounded border border-emerald-500/30 text-[10px] font-mono text-emerald-300">
+              WORLD ENGINE ALPHA
+            </div>
           </div>
 
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-8 leading-tight">
-            Fifty Years of Hollywood Disruption.<br>
-            <span class="text-slate-400 font-normal">Re-engineered for the Neural Age.</span>
-          </h2>
+          <!-- Video Details & Actions -->
+          <div class="p-8 flex-1 flex flex-col justify-between bg-jet/60">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-emerald-400 mb-2">
+                <span>BASED ON THE NOVEL BY JOSÉ FRÈCHES</span>
+                <span>EPIC HISTORICAL DRAMA</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-2">碧玉传奇 The Legend of the Jade</h3>
+              <p class="text-xs font-funnel text-gold-300 tracking-wider uppercase mb-4">
+                The Celestial Horses — An Ancient Dynastic Epic
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                Adapted from the celebrated novel by José Frèches. An imperial quest for the divine horses of the Western Heavens across mist-shrouded peaks, celestial talismans, and imperial Han legions rendered with physical generative dynamics.
+              </p>
+            </div>
 
-          <div class="space-y-6 text-slate-300 text-base md:text-lg font-light leading-relaxed">
-            <p>
-              Fifty years ago, <strong class="text-white font-medium">Tony Scotti</strong> arrived in Hollywood with $50 in his pocket and a vision. That grit built <strong class="text-white font-medium">Scotti Bros Records</strong>, launched global icons, and created <strong class="text-white font-medium">All American Television</strong>—home to <em class="text-amber-200 not-italic font-medium">Baywatch</em>, the most-watched television series in human history with over one billion global viewers.
-            </p>
-            <p>
-              Today, <strong class="text-amber-400 font-medium">Scotti AI (SAI) Studio</strong> applies that same audacious disruption to artificial intelligence. While others view AI as automated pastiche, we treat it as an amplified camera lens for auteur storytellers.
-            </p>
-          </div>
-
-          <!-- Highlight Box Quote -->
-          <div class="mt-10 p-6 rounded-sm border-l-2 border-amber-400 bg-surface/50 border-r border-t border-b border-white/5">
-            <p class="font-display text-lg text-white font-medium italic">
-              "We believe cinema is human-authored, director-led, and supercharged by frontier generative engines."
-            </p>
-            <div class="mt-4 flex items-center justify-between text-xs tracking-wider text-slate-400 uppercase">
-              <span>— Tony Scotti, Executive Chairman</span>
-              <span class="text-amber-400 font-mono">SAI STUDIO MANIFESTO</span>
+            <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+              <button onclick="launchTheater('jade')" class="flex-1 py-3 rounded-sm bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs tracking-cinematic uppercase transition-all flex items-center justify-center gap-2">
+                <i data-lucide="maximize" class="w-4 h-4"></i>
+                <span>Open Fullscreen Theater</span>
+              </button>
+              <button onclick="openProjectModal('jade')" class="px-5 py-3 rounded-sm border border-white/20 hover:border-gold-400 text-white hover:text-gold-300 text-xs tracking-cinematic uppercase font-semibold transition-all">
+                Dossier
+              </button>
             </div>
           </div>
 
@@ -322,7 +391,7 @@
     </div>
   </section>
 
-  <!-- FEATURE FILM PRODUCTION SLATE -->
+  <!-- ==================== PRODUCTION SLATE ==================== -->
   <section id="slate" class="relative z-10 py-32 px-6 bg-jet/40 border-t border-white/5">
     <div class="max-w-7xl mx-auto">
       
@@ -330,15 +399,15 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
           <div class="flex items-center gap-3 mb-3">
-            <span class="h-px w-8 bg-amber-500"></span>
-            <span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold">Production Slate</span>
+            <span class="h-px w-8 bg-gold-500"></span>
+            <span class="text-xs font-sans tracking-ultra-wide uppercase text-gold-400 font-semibold">Production Slate</span>
           </div>
           <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
             In-Development Tentpoles
           </h2>
         </div>
-        <p class="text-slate-400 max-w-md text-sm leading-relaxed">
-          Proprietary neural pipelines paired with world-class narrative scripts. Screenings, tech bibles, and confidential pitch access available for verified partners.
+        <p class="text-slate-400 max-w-md text-sm leading-relaxed font-light">
+          Proprietary neural pipelines paired with world-class narrative scripts. Screenings, technical bibles, and confidential pitch access available for verified partners.
         </p>
       </div>
 
@@ -346,63 +415,58 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         <!-- PROJECT 01: THE DOOLITTLE RAID -->
-        <div class="group relative rounded-sm border border-white/10 bg-surface hover:border-amber-500/40 transition-all duration-500 overflow-hidden flex flex-col justify-between">
+        <div class="group relative rounded-sm border border-white/10 bg-surface hover:border-gold-500/40 transition-all duration-500 overflow-hidden flex flex-col justify-between shadow-card-glow">
           
-          <!-- Poster Top Imagery -->
-          <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-obsidian">
-            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/60 z-10"></div>
+          <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-obsidian border-b border-white/5">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/70 z-10"></div>
             
-            <!-- Graphic Treatment / Stylized Key Visual -->
             <div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
               <div class="relative w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/20 via-obsidian to-obsidian flex flex-col items-center justify-center text-center p-6">
-                <!-- Tactical Watermark / Coordinates -->
-                <span class="font-mono text-[10px] tracking-widest text-amber-500/40 absolute top-4 left-4">USS HORNET (CV-8) // 35°40'N 141°00'E</span>
+                <span class="font-mono text-[10px] tracking-widest text-gold-500/40 absolute top-4 left-4">USS HORNET (CV-8) // 35°40'N 141°00'E</span>
                 <span class="font-mono text-[10px] tracking-widest text-slate-600 absolute top-4 right-4">PROD_ID: SAI-001</span>
                 
-                <i data-lucide="plane" class="w-16 h-16 text-amber-400/80 mb-3 stroke-[1.25]"></i>
+                <i data-lucide="plane" class="w-16 h-16 text-gold-400/80 mb-3 stroke-[1.25]"></i>
                 <span class="font-display text-2xl font-bold tracking-widest text-white uppercase">The Doolittle Raid</span>
-                <span class="text-xs font-mono text-amber-400/70 tracking-widest mt-1">16 B-25 MITCHELLS // 80 AVIATORS</span>
+                <span class="text-xs font-mono text-gold-400/70 tracking-widest mt-1">16 B-25 MITCHELLS // 80 AVIATORS</span>
               </div>
             </div>
 
             <!-- Badges -->
             <div class="absolute bottom-4 left-6 z-20 flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-amber-500/20 border border-amber-500/40 text-amber-300 font-semibold rounded-sm">
+              <span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-gold-500/20 border border-gold-500/40 text-gold-300 font-semibold rounded-sm">
                 In Pre-Production
               </span>
               <span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-white/10 border border-white/20 text-slate-200 font-semibold rounded-sm">
                 Neural VFX Slate
               </span>
               <span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-obsidian/80 border border-white/10 text-slate-400 rounded-sm">
-                Scotti AI Original
+                Scotti Bros Asia × SAI
               </span>
             </div>
           </div>
 
-          <!-- Card Content -->
+          <!-- Card Body -->
           <div class="p-8 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-mono text-amber-400 tracking-wider mb-2">FEATURE FILM | EPIC WWII HISTORICAL ACTION & THRILLER</div>
+              <div class="text-xs font-mono text-gold-400 tracking-wider mb-2">FEATURE FILM | EPIC WWII HISTORICAL ACTION & THRILLER</div>
               <h3 class="font-display text-2xl font-bold text-white mb-4">The Doolittle Raid</h3>
               <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
                 Eighty brave aviators. Sixteen stripped-down B-25 bombers launched from a pitching carrier deck. An impossible one-way mission that shifted the tide of World War II—reconstructed with photorealistic neural visual effects, dynamic aerial acoustics, and generative set extension.
               </p>
 
-              <!-- Technical Pipeline Specifications -->
               <div class="grid grid-cols-2 gap-4 py-4 border-y border-white/5 mb-6 text-xs">
                 <div>
                   <span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]">VFX Paradigm</span>
-                  <span class="text-slate-200 font-medium">Neural Fleet Synthesis</span>
+                  <span class="text-slate-200 font-medium font-funnel">Neural Fleet Synthesis</span>
                 </div>
                 <div>
                   <span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]">Audio Architecture</span>
-                  <span class="text-slate-200 font-medium">Acoustic Twin Soundscapes</span>
+                  <span class="text-slate-200 font-medium font-funnel">Acoustic Twin Soundscapes</span>
                 </div>
               </div>
             </div>
 
-            <!-- Inspect Modal Button -->
-            <button onclick="openProjectModal('doolittle')" class="w-full py-3 rounded-sm border border-amber-500/30 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 font-medium text-xs tracking-cinematic uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-glow">
+            <button onclick="openProjectModal('doolittle')" class="w-full py-3.5 rounded-sm border border-gold-500/30 hover:border-gold-400 bg-gold-500/5 hover:bg-gold-500/15 text-gold-300 font-semibold text-xs tracking-cinematic uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-gold-glow">
               <span>Inspect Project Dossier & Specs</span>
               <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </button>
@@ -411,22 +475,19 @@
         </div>
 
         <!-- PROJECT 02: LEGEND OF THE JADE -->
-        <div class="group relative rounded-sm border border-white/10 bg-surface hover:border-amber-500/40 transition-all duration-500 overflow-hidden flex flex-col justify-between">
+        <div class="group relative rounded-sm border border-white/10 bg-surface hover:border-gold-500/40 transition-all duration-500 overflow-hidden flex flex-col justify-between shadow-card-glow">
           
-          <!-- Poster Top Imagery -->
-          <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-obsidian">
-            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/60 z-10"></div>
+          <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-obsidian border-b border-white/5">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/70 z-10"></div>
             
-            <!-- Graphic Treatment / Stylized Key Visual -->
             <div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
               <div class="relative w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/25 via-obsidian to-obsidian flex flex-col items-center justify-center text-center p-6">
-                <!-- Watermark / Coordinates -->
                 <span class="font-mono text-[10px] tracking-widest text-emerald-500/40 absolute top-4 left-4">CELESTIAL PALACE ARCHIVES</span>
                 <span class="font-mono text-[10px] tracking-widest text-slate-600 absolute top-4 right-4">PROD_ID: SAI-002</span>
                 
                 <i data-lucide="sparkles" class="w-16 h-16 text-emerald-400/80 mb-3 stroke-[1.25]"></i>
                 <span class="font-display text-2xl font-bold tracking-widest text-white uppercase">Legend of the Jade</span>
-                <span class="text-xs font-mono text-emerald-400/70 tracking-widest mt-1">DYNASTIC MYTHOLOGY // ETHEREAL REALMS</span>
+                <span class="text-xs font-mono text-emerald-400/70 tracking-widest mt-1">THE CELESTIAL HORSES // JOSÉ FRÈCHES</span>
               </div>
             </div>
 
@@ -436,38 +497,36 @@
                 World Engine Alpha
               </span>
               <span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-white/10 border border-white/20 text-slate-200 font-semibold rounded-sm">
-                Mythic Fantasy Action
+                Novel by José Frèches
               </span>
               <span class="px-2.5 py-1 text-[10px] tracking-cinematic uppercase bg-obsidian/80 border border-white/10 text-slate-400 rounded-sm">
-                Scotti AI Original
+                Scotti Bros Asia × SAI
               </span>
             </div>
           </div>
 
-          <!-- Card Content -->
+          <!-- Card Body -->
           <div class="p-8 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-mono text-amber-400 tracking-wider mb-2">FEATURE FILM | MYTHIC FANTASY & ACTION ADVENTURE</div>
-              <h3 class="font-display text-2xl font-bold text-white mb-4">Legend of the Jade</h3>
+              <div class="text-xs font-mono text-gold-400 tracking-wider mb-2">FEATURE FILM | MYTHIC FANTASY & ACTION ADVENTURE</div>
+              <h3 class="font-display text-2xl font-bold text-white mb-4">The Legend of the Jade: The Celestial Horses</h3>
               <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
                 An ancient dynastic mystery intertwined with Eastern mythology and ethereal realms. SAI engines render mythical beasts, imperial jade citadels, and choreographed martial arts with physics-accurate generative cinematography.
               </p>
 
-              <!-- Technical Pipeline Specifications -->
               <div class="grid grid-cols-2 gap-4 py-4 border-y border-white/5 mb-6 text-xs">
                 <div>
                   <span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]">World Synthesis</span>
-                  <span class="text-slate-200 font-medium">Procedural Imperial Citadels</span>
+                  <span class="text-slate-200 font-medium font-funnel">Procedural Imperial Citadels</span>
                 </div>
                 <div>
                   <span class="text-slate-500 block mb-1 uppercase tracking-widest text-[10px]">Motion Physics</span>
-                  <span class="text-slate-200 font-medium">Neural Kinetic Stunt Rigging</span>
+                  <span class="text-slate-200 font-medium font-funnel">Neural Kinetic Stunt Rigging</span>
                 </div>
               </div>
             </div>
 
-            <!-- Inspect Modal Button -->
-            <button onclick="openProjectModal('jade')" class="w-full py-3 rounded-sm border border-amber-500/30 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 font-medium text-xs tracking-cinematic uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-glow">
+            <button onclick="openProjectModal('jade')" class="w-full py-3.5 rounded-sm border border-gold-500/30 hover:border-gold-400 bg-gold-500/5 hover:bg-gold-500/15 text-gold-300 font-semibold text-xs tracking-cinematic uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-gold-glow">
               <span>Inspect Project Dossier & Specs</span>
               <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </button>
@@ -480,90 +539,156 @@
     </div>
   </section>
 
-  <!-- THE SAI ENGINE: PROPRIETARY PRODUCTION PLATFORM -->
+  <!-- ==================== LEGACY: TONY SCOTTI ARCHITECTURE ==================== -->
+  <section id="legacy" class="relative z-10 py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        
+        <!-- Left: Provenance Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-sm overflow-hidden border border-white/10 bg-jet p-2 shadow-2xl">
+            
+            <div class="relative aspect-[4/5] rounded overflow-hidden bg-surface flex flex-col justify-end p-8 border border-white/5">
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent z-10"></div>
+              
+              <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px]"></div>
+              
+              <div class="relative z-20">
+                <span class="inline-block text-[10px] tracking-ultra-wide uppercase text-gold-400 font-bold mb-2">Historical Provenance</span>
+                <h3 class="font-display text-2xl font-bold text-white mb-2">Scotti Brothers to Scotti AI</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-light">
+                  From music publishing giants and iconic film records to producing <em>Baywatch</em>, the single most-watched television series in broadcast history.
+                </p>
+              </div>
+
+              <div class="absolute top-6 right-6 z-20 border border-gold-500/30 bg-obsidian/90 px-3 py-1 text-[10px] tracking-widest text-gold-300 uppercase rounded font-mono">
+                Est. Hollywood 1974
+              </div>
+            </div>
+
+            <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-gold-400"></div>
+            <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-gold-400"></div>
+          </div>
+        </div>
+
+        <!-- Right: The Narrative -->
+        <div class="lg:col-span-7 flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-8 bg-gold-500"></span>
+            <span class="text-xs font-sans tracking-ultra-wide uppercase text-gold-400 font-semibold">The Origin Architecture</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-8 leading-tight">
+            Fifty Years of Hollywood Disruption.<br>
+            <span class="text-slate-400 font-light">Re-engineered for the Synthetic Age.</span>
+          </h2>
+
+          <div class="space-y-6 text-slate-300 text-base md:text-lg font-light leading-relaxed">
+            <p>
+              Fifty years ago, <strong class="text-white font-medium">Tony Scotti</strong> arrived in Hollywood with $50 in his pocket and a vision. That grit built <strong class="text-white font-medium">Scotti Bros Records</strong>, launched global icons, and created <strong class="text-white font-medium">All American Television</strong>—home to <em class="text-gold-200 not-italic font-medium">Baywatch</em>, the most-watched television series in human history with over one billion global viewers.
+            </p>
+            <p>
+              Today, <strong class="text-gold-400 font-medium">Scotti AI (SAI) Studio</strong> applies that same disruption to artificial intelligence. We believe cinema is human-authored, director-led, and supercharged by frontier generative engines.
+            </p>
+          </div>
+
+          <div class="mt-10 p-6 rounded-sm border-l-2 border-gold-400 bg-surface/50 border-r border-t border-b border-white/5">
+            <p class="font-display text-lg text-white font-normal italic leading-relaxed">
+              "We believe cinema is human-authored, director-led, and supercharged by frontier generative engines."
+            </p>
+            <div class="mt-4 flex items-center justify-between text-xs tracking-wider text-slate-400 uppercase font-mono">
+              <span>— Tony Scotti, Executive Chairman</span>
+              <span class="text-gold-400">SAI STUDIO MANIFESTO</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== THE SAI ENGINE (PIPELINE) ==================== -->
   <section id="engine" class="relative z-10 py-32 px-6">
     <div class="max-w-7xl mx-auto">
       
-      <!-- Engine Section Header -->
       <div class="max-w-3xl mb-20">
         <div class="flex items-center gap-3 mb-4">
-          <span class="h-px w-8 bg-amber-500"></span>
-          <span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold">Proprietary Pipeline</span>
+          <span class="h-px w-8 bg-gold-500"></span>
+          <span class="text-xs font-sans tracking-ultra-wide uppercase text-gold-400 font-semibold">Proprietary Pipeline</span>
         </div>
         <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
           The SAI Engine: The Architecture of Synthetic Cinema
         </h2>
         <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed">
-          Modeled to resolve Hollywood's greatest generative limitations—identity drift, physics instability, and resolution constraints. A four-tiered studio engine governed exclusively by human directors.
+          Engineered to resolve Hollywood's most notorious generative roadblocks: identity drift, acoustic incoherence, and physics artifacts. Governed strictly by human directors.
         </p>
       </div>
 
-      <!-- Pipeline Four Pillars Grid -->
+      <!-- Pipeline 4 Pillars Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <!-- Pillar 01 -->
-        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group">
+        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between group">
           <div>
-            <div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors">
+            <div class="w-12 h-12 rounded bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500/20 transition-colors">
               <i data-lucide="file-code-2" class="w-6 h-6"></i>
             </div>
-            <span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2">STAGE 01 // SCRIPT GEOMETRY</span>
+            <span class="font-mono text-[10px] text-gold-400 tracking-widest block mb-2">STAGE 01 // GEOMETRY</span>
             <h4 class="font-display text-lg font-bold text-white mb-3">Autonomous Script Breakdown</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">
+            <p class="text-slate-400 text-xs leading-relaxed font-light">
               Synthesizes screenplay text into 3D scene geometry, lighting conditions, dynamic blocking cues, and acoustic room volumes instantaneously.
             </p>
           </div>
           <div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between">
             <span>LATENCY: ZERO-DRIFT</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-500"></i>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-gold-500"></i>
           </div>
         </div>
 
-        <!-- Pillar 02 -->
-        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group">
+        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between group">
           <div>
-            <div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors">
+            <div class="w-12 h-12 rounded bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500/20 transition-colors">
               <i data-lucide="scan-face" class="w-6 h-6"></i>
             </div>
-            <span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2">STAGE 02 // MULTIMODAL LOCK</span>
+            <span class="font-mono text-[10px] text-gold-400 tracking-widest block mb-2">STAGE 02 // MULTIMODAL LOCK</span>
             <h4 class="font-display text-lg font-bold text-white mb-3">Consistent Identity Engine</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Zero facial or costume drift across 120 minutes of cinematic footage. Retains character biometric integrity across extreme angles and dynamic motion.
+            <p class="text-slate-400 text-xs leading-relaxed font-light">
+              Zero facial or costume drift across 120 minutes of cinematic footage. Retains character biometric integrity across extreme angles and stunts.
             </p>
           </div>
           <div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between">
             <span>STABILITY: 99.8%</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-500"></i>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-gold-500"></i>
           </div>
         </div>
 
-        <!-- Pillar 03 -->
-        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group">
+        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between group">
           <div>
-            <div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors">
+            <div class="w-12 h-12 rounded bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500/20 transition-colors">
               <i data-lucide="clapperboard" class="w-6 h-6"></i>
             </div>
-            <span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2">STAGE 03 // REAL-TIME PREVIS</span>
+            <span class="font-mono text-[10px] text-gold-400 tracking-widest block mb-2">STAGE 03 // PREVIS</span>
             <h4 class="font-display text-lg font-bold text-white mb-3">Real-Time Director Steering</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">
+            <p class="text-slate-400 text-xs leading-relaxed font-light">
               Sub-second iterative storyboarding with virtual multi-camera rigs. Directors manipulate lens focal length, crane velocity, and lighting in real time.
             </p>
           </div>
           <div class="mt-8 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500 flex items-center justify-between">
             <span>RENDER: 60 FPS PREVIS</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-500"></i>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-gold-500"></i>
           </div>
         </div>
 
-        <!-- Pillar 04 -->
-        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group">
+        <div class="p-8 rounded-sm bg-jet/80 border border-white/5 hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between group">
           <div>
-            <div class="w-12 h-12 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500/20 transition-colors">
+            <div class="w-12 h-12 rounded bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500/20 transition-colors">
               <i data-lucide="sparkle" class="w-6 h-6"></i>
             </div>
-            <span class="font-mono text-[10px] text-amber-400 tracking-widest block mb-2">STAGE 04 // FINAL MASTER</span>
+            <span class="font-mono text-[10px] text-gold-400 tracking-widest block mb-2">STAGE 04 // FINAL MASTER</span>
             <h4 class="font-display text-lg font-bold text-white mb-3">4K/8K Neural Compositing</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">
+            <p class="text-slate-400 text-xs leading-relaxed font-light">
               DCI-P3 color master grade, optical anamorphic lens flare matching, organic 35mm grain emulation, and spatial Dolby Atmos acoustic rendering.
             </p>
           </div>
@@ -575,28 +700,28 @@
 
       </div>
 
-      <!-- Interactive Pipeline Schematic Terminal -->
-      <div class="mt-12 rounded-sm border border-white/10 bg-jet p-6 font-mono text-xs">
+      <!-- Live Pipeline Terminal Monitor -->
+      <div class="mt-12 rounded-sm border border-white/10 bg-jet p-6 font-mono text-xs shadow-2xl">
         <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
           <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-green-500/70"></span>
-            <span class="text-slate-500 ml-2 text-[11px]">SAI-CORE-NODE // PIPELINE TELEMETRY</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 animate-pulse"></span>
+            <span class="text-slate-500 ml-2 text-[11px]">SAI-CORE-CLUSTER // TELEMETRY NODE</span>
           </div>
-          <span class="text-amber-400/80 text-[10px]">DIRECTOR OVERRIDE ENABLED</span>
+          <span class="text-gold-400 text-[10px] tracking-wider uppercase font-semibold">DIRECTOR OVERRIDE: ACTIVE</span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-400">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-400">
           <div>
-            <span class="text-slate-600 block">IDENTITY MATRIX:</span>
+            <span class="text-slate-600 block text-[10px]">IDENTITY MATRIX:</span>
             <span class="text-white">Active (Model: ScottiNet-v4.2-Anamorphic)</span>
           </div>
           <div>
-            <span class="text-slate-600 block">GENERATIVE SEED LOCK:</span>
-            <span class="text-amber-400">0x8F94...B19 (Non-Drifting)</span>
+            <span class="text-slate-600 block text-[10px]">GENERATIVE SEED LOCK:</span>
+            <span class="text-gold-400 font-mono">0x8F94...B19 (Non-Drifting)</span>
           </div>
           <div>
-            <span class="text-slate-600 block">MAX RENDER RESOLUTION:</span>
+            <span class="text-slate-600 block text-[10px]">MAX MASTER GRADE:</span>
             <span class="text-white">8192 × 4320 @ 12-Bit ProRes 4444 XQ</span>
           </div>
         </div>
@@ -605,21 +730,21 @@
     </div>
   </section>
 
-  <!-- LEADERSHIP & HOLLYWOOD PEDIGREE -->
+  <!-- ==================== LEADERSHIP & PEDIGREE ==================== -->
   <section id="leadership" class="relative z-10 py-32 px-6 bg-jet/30 border-t border-white/5">
     <div class="max-w-7xl mx-auto">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
           <div class="flex items-center gap-3 mb-3">
-            <span class="h-px w-8 bg-amber-500"></span>
-            <span class="text-xs font-sans tracking-ultra-wide uppercase text-amber-400 font-semibold">Studio Governance</span>
+            <span class="h-px w-8 bg-gold-500"></span>
+            <span class="text-xs font-sans tracking-ultra-wide uppercase text-gold-400 font-semibold">Studio Governance</span>
           </div>
           <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
             Executive Leadership
           </h2>
         </div>
-        <p class="text-slate-400 max-w-md text-sm leading-relaxed">
+        <p class="text-slate-400 max-w-md text-sm leading-relaxed font-light">
           The rare intersection of classic Hollywood entertainment empires and breakthrough generative technology architects.
         </p>
       </div>
@@ -627,32 +752,32 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
         <!-- Tony Scotti Profile Card -->
-        <div class="lg:col-span-8 p-8 md:p-12 rounded-sm border border-amber-500/30 bg-surface/80 relative overflow-hidden shadow-glow">
+        <div class="lg:col-span-8 p-8 md:p-12 rounded-sm border border-gold-500/30 bg-surface/90 relative overflow-hidden shadow-gold-glow">
           <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-            <i data-lucide="award" class="w-40 h-40 text-amber-400"></i>
+            <i data-lucide="award" class="w-44 h-44 text-gold-400"></i>
           </div>
 
           <div class="relative z-10">
             <div class="flex items-center gap-3 mb-4">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono tracking-widest uppercase bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30">
+              <span class="px-2.5 py-1 rounded text-[10px] font-mono tracking-widest uppercase bg-gold-500/20 text-gold-300 font-semibold border border-gold-500/30">
                 Studio Co-Founder & Executive Chairman
               </span>
             </div>
 
-            <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-2">Tony Scotti</h3>
-            <p class="text-amber-400/90 text-sm font-medium tracking-wide mb-6">
-              Pioneer of Scotti Bros Records & All American Television
+            <h3 class="font-display text-3xl sm:text-4xl font-bold text-white mb-2">Tony Scotti</h3>
+            <p class="text-gold-400 text-sm font-medium tracking-wide mb-6">
+              Pioneer of Scotti Bros Records, All American Television & Scotti Bros Asia
             </p>
 
             <p class="text-slate-300 text-base leading-relaxed mb-6 font-light">
               With a legendary career spanning half a century in major entertainment financing, distribution, and production, Tony Scotti redefined modern commercial entertainment. Under his leadership, Scotti Bros Records dominated global charts, while All American Television produced and distributed <em>Baywatch</em>—reaching over 1 billion viewers across 140 countries.
             </p>
 
-            <p class="text-slate-400 text-sm leading-relaxed mb-8">
+            <p class="text-slate-400 text-sm leading-relaxed mb-8 font-light">
               At SAI Studio, Scotti steers overall studio vision, talent alliances, and distribution windows—insuring synthetic tools remain dedicated to auteur cinematic storytelling rather than derivative novelty.
             </p>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10 text-xs">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10 text-xs font-mono">
               <div>
                 <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1">Global Television</span>
                 <span class="text-white font-semibold">1,000,000,000+ Viewers</span>
@@ -662,38 +787,38 @@
                 <span class="text-white font-semibold">Scotti Bros / All American</span>
               </div>
               <div>
-                <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1">Current Focus</span>
-                <span class="text-amber-400 font-semibold">Generative Hollywood Slate</span>
+                <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1">Studio Mandate</span>
+                <span class="text-gold-400 font-semibold">Generative Hollywood Slate</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Studio Ethos / Methodology -->
+        <!-- Studio Covenant Card -->
         <div class="lg:col-span-4 p-8 md:p-10 rounded-sm border border-white/10 bg-jet flex flex-col justify-between">
           <div>
-            <div class="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center text-amber-400 mb-6">
+            <div class="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center text-gold-400 mb-6">
               <i data-lucide="shield-check" class="w-5 h-5"></i>
             </div>
             <h4 class="font-display text-xl font-bold text-white mb-4">The SAI Production Covenant</h4>
-            <ul class="space-y-4 text-xs text-slate-300 leading-relaxed">
+            <ul class="space-y-4 text-xs text-slate-300 leading-relaxed font-light">
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
                 <span><strong>Human-Authored Rights:</strong> Every script is commissioned and authored by human screenwriters with clean WGA-aligned provenance.</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
                 <span><strong>Director Steering:</strong> Generative models respond strictly to explicit creative direction, rejecting black-box unpredictability.</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
                 <span><strong>Theatrical Fidelity:</strong> Engineered from ground-zero for IMAX, Dolby Cinema, and premier 4K HDR physical projection.</span>
               </li>
             </ul>
           </div>
 
           <div class="pt-6 border-t border-white/5 mt-8">
-            <button onclick="openBriefingModal()" class="w-full py-3 rounded-sm border border-white/20 hover:border-amber-400 text-white hover:text-amber-300 text-xs tracking-cinematic uppercase font-semibold transition-all">
+            <button onclick="openBriefingModal()" class="w-full py-3 rounded-sm border border-white/20 hover:border-gold-400 text-white hover:text-gold-300 text-xs tracking-cinematic uppercase font-semibold transition-all">
               Request Partner Briefing
             </button>
           </div>
@@ -704,11 +829,11 @@
     </div>
   </section>
 
-  <!-- CONTACT & PRIVATE BRIEFINGS -->
+  <!-- ==================== PRESS / CONTACT SECTION ==================== -->
   <section id="contact" class="relative z-10 py-32 px-6 border-t border-white/10">
     <div class="max-w-4xl mx-auto text-center">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[10px] tracking-ultra-wide uppercase font-semibold mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-300 text-[10px] tracking-ultra-wide uppercase font-semibold mb-6">
         Distribution & Co-Production
       </div>
 
@@ -721,12 +846,12 @@
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button onclick="openBriefingModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-xs tracking-cinematic uppercase hover:shadow-glow transition-all duration-300">
+        <button onclick="openBriefingModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold text-xs tracking-cinematic uppercase hover:shadow-gold-glow transition-all duration-300">
           Request Confidential Slate Pitch
         </button>
-        <a href="mailto:inquiries@scottiaistudio.com" class="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-white/20 hover:border-white text-white text-xs tracking-cinematic uppercase font-medium transition-all">
+        <button onclick="openBriefingModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-white/20 hover:border-white text-white text-xs tracking-cinematic uppercase font-medium transition-all">
           Press & Media Relations
-        </a>
+        </button>
       </div>
 
       <div class="mt-16 pt-12 border-t border-white/5 flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-slate-500">
@@ -740,22 +865,23 @@
     </div>
   </section>
 
-  <!-- LUXURY FOOTER -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="relative z-10 bg-jet border-t border-white/10 py-16 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
       
       <div class="flex flex-col items-center md:items-start">
         <div class="flex items-center gap-3 mb-2">
-          <div class="w-6 h-6 rounded bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
-            <span class="font-display font-black text-amber-400 text-xs">S</span>
+          <div class="w-6 h-6 rounded bg-gold-500/20 border border-gold-500/40 flex items-center justify-center">
+            <span class="font-display font-black text-gold-400 text-xs">S</span>
           </div>
           <span class="font-display font-bold text-sm tracking-widest text-white">SAI STUDIO</span>
         </div>
-        <p class="text-xs text-slate-500">Scotti AI Studio Inc. Bridging Hollywood Heritage & Autonomous Cinema.</p>
+        <p class="text-xs text-slate-500 font-light">Scotti AI Studio Inc. Bridging Hollywood Heritage & Autonomous Cinema.</p>
       </div>
 
-      <div class="flex items-center gap-8 text-xs tracking-cinematic uppercase text-slate-400">
+      <div class="flex items-center gap-8 text-xs tracking-cinematic uppercase text-slate-400 font-medium">
         <a href="#slate" class="hover:text-white transition-colors">Slate</a>
+        <a href="#trailers" class="hover:text-white transition-colors">Trailers</a>
         <a href="#engine" class="hover:text-white transition-colors">Engine</a>
         <a href="#legacy" class="hover:text-white transition-colors">Legacy</a>
         <a href="#leadership" class="hover:text-white transition-colors">Leadership</a>
@@ -768,76 +894,96 @@
     </div>
   </footer>
 
-  <!-- ==================== MODALS ==================== -->
-
-  <!-- PROJECT DOSSIER MODAL -->
-  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/90 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-3xl my-8 rounded-sm border border-amber-500/30 bg-surface p-6 sm:p-10 shadow-glow-lg text-left transition-all">
+  <!-- ==================== FULLSCREEN THEATER MODAL ==================== -->
+  <div id="theaterModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8">
+    <div class="relative w-full max-w-6xl flex flex-col items-center">
       
-      <!-- Close button -->
+      <!-- Close Button -->
+      <button onclick="closeTheater()" class="absolute -top-12 right-0 text-slate-400 hover:text-white flex items-center gap-2 text-xs font-mono uppercase tracking-widest">
+        <span>Close Cinema Screen</span>
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Video Player Frame in Theater -->
+      <div class="w-full aspect-video bg-black rounded-sm overflow-hidden border border-gold-500/30 shadow-gold-lg relative">
+        <video id="theaterVideo" class="w-full h-full object-contain" controls autoplay playsinline>
+          <source id="theaterSource" src="" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="w-full flex items-center justify-between mt-4 text-xs font-mono text-slate-400">
+        <span id="theaterTitle" class="text-white font-medium uppercase tracking-wider"></span>
+        <span class="text-gold-400">4K DCI-P3 // DOLBY ATMOS SYNCHRONIZED</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PROJECT DOSSIER MODAL ==================== -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/90 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-3xl my-8 rounded-sm border border-gold-500/30 bg-surface p-6 sm:p-10 shadow-gold-lg text-left transition-all">
+      
       <button onclick="closeProjectModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <!-- Dynamic Modal Content Injection Target -->
       <div id="modalContent"></div>
 
       <div class="mt-8 pt-6 border-t border-white/10 flex justify-end gap-4">
-        <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-sm border border-white/10 text-slate-400 text-xs tracking-wider uppercase hover:text-white">
+        <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-sm border border-white/10 text-slate-400 text-xs tracking-wider uppercase hover:text-white font-funnel">
           Close Dossier
         </button>
-        <button onclick="closeProjectModal(); openBriefingModal();" class="px-6 py-2.5 rounded-sm bg-amber-500 text-black font-bold text-xs tracking-wider uppercase hover:bg-amber-400 transition-colors">
+        <button onclick="closeProjectModal(); openBriefingModal();" class="px-6 py-2.5 rounded-sm bg-gold-500 text-black font-bold text-xs tracking-wider uppercase hover:bg-gold-400 transition-colors">
           Request NDA Slate Access
         </button>
       </div>
     </div>
   </div>
 
-  <!-- SCREENING / BRIEFING ACCESS MODAL -->
+  <!-- ==================== SCREENING BRIEFING MODAL ==================== -->
   <div id="briefingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/90 backdrop-blur-md">
-    <div class="relative w-full max-w-lg rounded-sm border border-amber-500/30 bg-surface p-8 shadow-glow-lg text-left">
+    <div class="relative w-full max-w-lg rounded-sm border border-gold-500/30 bg-surface p-8 shadow-gold-lg text-left">
       
       <button onclick="closeBriefingModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <div class="flex items-center gap-2 text-amber-400 text-xs font-mono tracking-widest uppercase mb-2">
+      <div class="flex items-center gap-2 text-gold-400 text-xs font-mono tracking-widest uppercase mb-2">
         <i data-lucide="lock" class="w-3.5 h-3.5"></i>
         <span>Restricted Screening Access</span>
       </div>
 
       <h3 class="font-display text-2xl font-bold text-white mb-2">Request Production Deck</h3>
-      <p class="text-xs text-slate-400 leading-relaxed mb-6">
+      <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">
         Accredited producers, distributors, and studio executives may request access to interactive story reels, neural test captures, and investment terms.
       </p>
 
-      <form onsubmit="handleBriefingSubmit(event)" class="space-y-4">
+      <form onsubmit="handleBriefingSubmit(event)" class="space-y-4 font-funnel">
         <div>
           <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Official Name</label>
-          <input type="text" required placeholder="e.g. Eleanor Vance" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors">
+          <input type="text" required placeholder="e.g. Eleanor Vance" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-gold-400 transition-colors">
         </div>
 
         <div>
           <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Corporate / Agency Email</label>
-          <input type="email" required placeholder="name@studio.com" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors">
+          <input type="email" required placeholder="name@studio.com" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-gold-400 transition-colors">
         </div>
 
         <div>
           <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Organization / Title</label>
-          <input type="text" required placeholder="e.g. VP Acquisition, Global Theatrical" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors">
+          <input type="text" required placeholder="e.g. VP Acquisition, Global Theatrical" class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-gold-400 transition-colors">
         </div>
 
         <div>
           <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Inquiry Interest</label>
-          <select class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors">
+          <select class="w-full bg-jet border border-white/10 rounded-sm px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400 transition-colors">
             <option>Project 01: The Doolittle Raid (Worldwide Rights)</option>
-            <option>Project 02: Legend of the Jade (Co-Production)</option>
+            <option>Project 02: Legend of the Jade: The Celestial Horses (Co-Production)</option>
             <option>SAI Engine Enterprise Licensing</option>
             <option>Press / Festival Accreditation</option>
           </select>
         </div>
 
-        <button type="submit" class="w-full mt-4 py-3 rounded-sm bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs tracking-cinematic uppercase transition-all shadow-glow">
+        <button type="submit" class="w-full mt-4 py-3 rounded-sm bg-gold-500 hover:bg-gold-400 text-black font-bold text-xs tracking-cinematic uppercase transition-all shadow-gold-glow">
           Submit Confidential Request
         </button>
       </form>
@@ -845,7 +991,7 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
@@ -857,33 +1003,62 @@
     }
     document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
 
+    // Fullscreen Theater Logic
+    function launchTheater(projectKey) {
+      const modal = document.getElementById('theaterModal');
+      const video = document.getElementById('theaterVideo');
+      const source = document.getElementById('theaterSource');
+      const title = document.getElementById('theaterTitle');
+
+      if (projectKey === 'doolittle') {
+        source.src = 'doolittle-raid-trailer.mp4';
+        title.textContent = 'The Doolittle Raid — Official Trailer (Scotti Bros Asia / SAI)';
+      } else {
+        source.src = 'legend-of-the-jade-trailer.mp4';
+        title.textContent = '碧玉传奇 The Legend of the Jade: The Celestial Horses (Novel by José Frèches)';
+      }
+
+      video.load();
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      video.play().catch(() => {});
+    }
+
+    function closeTheater() {
+      const modal = document.getElementById('theaterModal');
+      const video = document.getElementById('theaterVideo');
+      video.pause();
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
     // Project Dossier Data
     const projectData = {
       doolittle: {
         title: "The Doolittle Raid",
         badge: "IN PRE-PRODUCTION // NEURAL VFX SLATE",
-        format: "Feature Film | Epic WWII Historical Action / Thriller",
+        format: "Feature Film | Epic WWII Historical Action & Thriller",
         logline: "Eighty brave aviators. Sixteen stripped-down B-25 bombers launched from a pitching carrier deck. An impossible one-way mission that shifted the tide of World War II—reconstructed with photorealistic neural visual effects, dynamic aerial acoustics, and generative set extension.",
         details: [
-          { label: "Historical Subject", val: "April 18, 1942 Tokyo Raid" },
+          { label: "Production Alliance", val: "Scotti Bros Asia Production × Scotti AI Studio" },
+          { label: "Historical Event", val: "April 18, 1942 Tokyo Air Raid & Rescue in China" },
           { label: "Proprietary Tech", val: "B-25 Dynamic Aero-Acoustics & Generative Pacific Seastate" },
-          { label: "Resolution & Format", val: "IMAX 1.43:1 & 2.39:1 Scope / Dolby Vision DCI-P3" },
-          { label: "Lead Architecture", val: "SAI Studio World Engine + Historical Archive Synthesis" }
+          { label: "Theatrical Format", val: "IMAX 1.43:1 & 2.39:1 Scope / Dolby Vision DCI-P3" }
         ],
-        synopsis: "Following the shock of Pearl Harbor, Lt. Colonel Jimmy Doolittle conceives an audacity previously deemed aerodynamically impossible: launching heavy Army land bombers from the short deck of the aircraft carrier USS Hornet. With stripped fuel tanks and no landing strip on the return path, 80 men embark toward high-altitude combat over Tokyo. SAI Studio reconstructs the pitching, gale-force flight decks and cloud canyons with unmatched photorealism and historically accurate aerodynamic telemetry."
+        synopsis: "Following the devastating attack on Pearl Harbor, Lt. Colonel Jimmy Doolittle conceives a mission previously deemed aerodynamically impossible: launching heavy land-based B-25 Mitchell bombers from the pitching flight deck of the USS Hornet. With no landing strips available within return range, 80 brave aviators complete their low-altitude strike across Tokyo and crash-land in Japanese-occupied China, where heroic villagers and local guerillas risk everything to shepherd them to safety."
       },
       jade: {
-        title: "Legend of the Jade",
-        badge: "WORLD ENGINE ALPHA // SCRIPT BREAKDOWN COMPLETE",
-        format: "Feature Film | Mythic Fantasy / Action Adventure",
-        logline: "An ancient dynastic mystery intertwined with Eastern mythology and ethereal realms. SAI engines render mythical beasts, imperial jade citadels, and choreographed martial arts with physics-accurate generative cinematography.",
+        title: "碧玉传奇 The Legend of the Jade: The Celestial Horses",
+        badge: "WORLD ENGINE ALPHA // BASED ON JOSÉ FRÈCHES NOVEL",
+        format: "Feature Film | Mythic Fantasy & Dynastic Action Adventure",
+        logline: "Adapted from the acclaimed novel by French Sinologist José Frèches. An epic dynastic saga tracing the Han Dynasty's historic expedition to acquire the legendary 'Heavenly Horses' of Fergana, intertwined with jade talismans, celestial court intrigues, and sweeping martial arts warfare.",
         details: [
-          { label: "Genre Spectrum", val: "Dynastic Wuxia / Ethereal High Fantasy" },
-          { label: "Proprietary Tech", val: "Neural Kinetic Stunt Rigging & Imperial Citadel Procedural Geometry" },
-          { label: "Aesthetic Direction", val: "Luminous Emerald Atmospheric Volumes & 65mm Optical Flare Emulation" },
-          { label: "Lead Architecture", val: "SAI Multimodal Identity & Creature Synthesis Pipeline" }
+          { label: "Literary Source", val: "Novel by José Frèches (Former French PM Cultural Advisor & Sinologist)" },
+          { label: "Production Alliance", val: "Scotti Bros Asia Production × Scotti AI Studio" },
+          { label: "World Synthesis", val: "Imperial Han Citadel Procedural Architecture & Mythic Beast Rigging" },
+          { label: "Visual Direction", val: "Luminous Emerald Celestial Volumes & 65mm Anamorphic Flares" }
         ],
-        synopsis: "Deep within the fractured Middle Kingdoms, a broken seal upon an imperial jade mountain awakens mythic entities dormant for ten millennia. A disgraced imperial protector must navigate labyrinthine palace intrigues and celestial spirit realms to reclaim the Jade Sovereign. SAI Studio brings ethereal celestial citadels and fluid combat choreography to life utilizing novel physics-informed generative fluid mechanics and micro-expression locking."
+        synopsis: "During the reign of Emperor Wu of Han, the empire faces relentless northern nomadic threats. Desperate for superior cavalry, the Emperor dispatches an unprecedented military and diplomatic expedition across the treacherous Pamir Mountains to secure the fabled 'Celestial Horses'—steeds said to sweat blood and descend from dragons. Through ancient jade talismans and palace power struggles, SAI Studio reconstructs this sweeping cultural milestone with groundbreaking physics-informed procedural crowd simulation and dynamic weather engines."
       }
     };
 
@@ -893,11 +1068,11 @@
       if (!p) return;
 
       const content = `
-        <div class="flex items-center gap-2 text-amber-400 text-xs font-mono tracking-widest uppercase mb-2">
+        <div class="flex items-center gap-2 text-gold-400 text-xs font-mono tracking-widest uppercase mb-2">
           <span>${p.badge}</span>
         </div>
         <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-2">${p.title}</h2>
-        <p class="text-xs font-mono text-amber-300 tracking-wider mb-6">${p.format}</p>
+        <p class="text-xs font-mono text-gold-300 tracking-wider mb-6">${p.format}</p>
         
         <div class="p-4 rounded border border-white/5 bg-jet/60 mb-6">
           <span class="text-[10px] uppercase font-mono tracking-widest text-slate-500 block mb-1">Official Logline</span>
@@ -909,7 +1084,7 @@
           <p class="text-sm text-slate-300 leading-relaxed font-light">${p.synopsis}</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10 font-funnel">
           ${p.details.map(d => `
             <div>
               <span class="text-[10px] uppercase font-mono tracking-widest text-slate-500 block">${d.label}</span>
@@ -951,12 +1126,17 @@
       closeBriefingModal();
     }
 
-    // Close modals on escape key or clicking backdrop
+    // Close Modals on Escape or Outside Click
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProjectModal();
         closeBriefingModal();
+        closeTheater();
       }
+    });
+
+    document.getElementById('theaterModal').addEventListener('click', (e) => {
+      if (e.target.id === 'theaterModal') closeTheater();
     });
 
     document.getElementById('projectModal').addEventListener('click', (e) => {
@@ -967,12 +1147,11 @@
       if (e.target.id === 'briefingModal') closeBriefingModal();
     });
 
-    // Dynamic Navbar styling on scroll
+    // Navbar Background Shift on Scroll
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
       if (window.scrollY > 50) {
         nav.classList.add('py-2', 'bg-obsidian/95');
-        nav.classList.remove('py-0');
       } else {
         nav.classList.remove('py-2', 'bg-obsidian/95');
       }
